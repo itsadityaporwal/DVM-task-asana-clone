@@ -1,0 +1,66 @@
+:root {
+    font-family: "TWK Lausanne", "Helvetica Neue", "Helvetica", sans-serif;
+
+    /* Layout */
+    --container-max: 1200px;
+    --radius: 12px;
+
+    /* Spacing (4-step scale) */
+    --space-1: 0.5rem;
+    --space-2: 1rem;
+    --space-3: 1.5rem;
+    --space-4: 2rem;
+
+    /* Typography */
+    --fs-sm: clamp(0.875rem, 1.4vw, 1rem);
+    --fs-base: clamp(1rem, 1.8vw, 1.125rem);
+    --fs-lg: clamp(1.25rem, 2.4vw, 1.5rem);
+    --fs-xl: clamp(1.5rem, 3vw, 2rem);
+
+    --main-color: #690031;
+    --accent-color: #ffeaec;
+    --secondary-color: #cbefff;
+    --secondary-accent-color: #222875;
+    --primary-font-color: #0d0d0d;
+
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* navbar styles here */
+
+.navbar {
+    color: #6e6e6e;
+    display: flex;
+    min-height: clamp(3.5rem, 6vh, 5rem);
+    padding-inline: clamp(1rem, 3.5vw, 2rem);
+    padding-block: clamp(0.5rem, 2vh, 0.75rem);
+    justify-content: space-between;
+    align-items: center;
+
+}
+/* .logo {
+    display: flex;
+    align-items: center;
+} */
+
+.logo img {
+    height: clamp(1rem, 3vh, 2.75rem);
+    width: auto;
+    object-fit: contain;
+}
+
+.nav_button {
+    background-color: var(--primary-font-color);
+}
+
+
+.hero_section {
+    
+}
