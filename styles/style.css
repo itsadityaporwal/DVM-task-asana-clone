@@ -75,9 +75,9 @@
 
 /* hero section 1 starts here */
 section {
-    padding-inline: 1rem;
-    padding-block: clamp(2rem, 6vw, 6rem);
-    margin-block-end: clamp(2.5rem, 10vw, 6rem);
+    padding-inline: clamp(1.25rem, 2vw, 3rem);
+    padding-block: clamp(1rem, 6vw, 1.5rem);
+    margin-block-end: clamp(2rem, 5vw, 3rem);
 }
 .hero_section {
     background-color: var(--main-color);
@@ -133,3 +133,29 @@ section {
     width: 100%;
     height: auto;
 }
+
+/* section 2(companies) */
+.company_wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.company {
+    display: inline-block;
+    padding-inline: clamp(1rem, 5vw, 2rem);
+    max-height: clamp(5rem, 7vw, 8rem);
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+.h4_wrap {
+    display:flex;
+    max-width: 80%;
+    justify-content: space-around;
+}
+h4 {
+    font-weight: 200;
+    font-size: var(--fs-lg);
+}
+
+/* section 3 here  */
