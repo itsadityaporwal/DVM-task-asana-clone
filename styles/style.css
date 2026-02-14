@@ -15,13 +15,15 @@
     --fs-sm: clamp(0.875rem, 1.4vw, 1rem);
     --fs-base: clamp(1rem, 1.8vw, 1.125rem);
     --fs-lg: clamp(1.25rem, 2.4vw, 1.5rem);
-    --fs-xl: clamp(1.5rem, 3vw, 2rem);
+    --fs-xl: clamp(1.75rem, 3.75vw, 5rem);
 
     --main-color: #690031;
     --accent-color: #ffeaec;
     --secondary-color: #cbefff;
     --secondary-accent-color: #222875;
     --primary-font-color: #0d0d0d;
+    --white-color: #ffffff;
+
 
 }
 
@@ -45,10 +47,11 @@
     align-items: center;
 
 }
-/* .logo {
+
+.logo {
     display: flex;
     align-items: center;
-} */
+}
 
 .logo img {
     height: clamp(1rem, 3vh, 2.75rem);
@@ -58,9 +61,75 @@
 
 .nav_button {
     background-color: var(--primary-font-color);
+    color: var(--white-color);
+    padding: clamp(0.5rem, 1.5vh, 0.75rem) clamp(0.75rem, 2vw, 1.25rem);
+    
 }
 
+.button {
+    display: block;
+    border: none;
+    padding: clamp(0.5rem, 1.5vh, 0.75rem) clamp(0.75rem, 2vw, 1.25rem);
+    border-radius: 20px;
+}
 
+/* hero section 1 starts here */
+section {
+    padding-inline: 1rem;
+    padding-block: clamp(2rem, 6vw, 6rem);
+    margin-block-end: clamp(2.5rem, 10vw, 6rem);
+}
 .hero_section {
+    background-color: var(--main-color);
+    color: var(--accent-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:  clamp(1rem, 4vw, 2rem);
+
+}
+.hero_section h1 {
+    padding:  clamp(1rem, 2.5vw, 2rem);
+    font-weight: 900;
+    font-size: var(--fs-xl);
+    text-align: center;
+
+}
+.hero_section p {
+    font-size: var(--fs-sm);
+    font-weight: 100;
+    padding-inline:  clamp(1rem, 2.5vw, 2rem);
+    padding-block-end: clamp(.5rem, 1.5vw, 1.5rem);
+    text-align: center;
+}
+
+.hero_buttons {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
     
+
+
+}
+
+.hero_buttons button {
+    margin: clamp(0.5rem, 1vw, 2rem);
+    background-color: var(--accent-color);
+    color: var(--main-color);
+    font-size: var(--fs-sm);
+    font-weight: 300;
+}
+
+.hero_img_wrap {
+    padding-inline:  clamp(1rem, 2.5vw, 2rem);
+    padding-block:  clamp(1rem, 2.5vw, 2rem);
+    
+
+}
+.hero_img {
+    width: 100%;
+    height: auto;
 }
