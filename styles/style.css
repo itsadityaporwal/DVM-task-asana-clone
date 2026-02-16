@@ -12,7 +12,8 @@
     --space-4: 2rem;
 
     /* Typography */
-    --fs-sm: clamp(0.875rem, 1.4vw, 1rem);
+    --fs-xs: clamp(0.86rem, 1.3vw, 1.15rem);
+    --fs-sm: clamp(0.875rem, 1.4vw, 1.25rem);
     --fs-base: clamp(1rem, 1.8vw, 1.125rem);
     --fs-lg: clamp(1.25rem, 2.4vw, 1.5rem);
     --fs-xl: clamp(1.75rem, 3.75vw, 5rem);
@@ -35,6 +36,10 @@
     padding: 0;
 }
 
+.body {
+    display: grid;
+    grid-template-rows: auto auto auto;
+}
 /* navbar styles here */
 
 .navbar {
@@ -120,7 +125,7 @@ section {
     background-color: var(--accent-color);
     color: var(--main-color);
     font-size: var(--fs-sm);
-    font-weight: 300;
+    font-weight: 500;
 }
 
 .hero_img_wrap {
@@ -154,8 +159,74 @@ section {
     justify-content: space-around;
 }
 h4 {
-    font-weight: 200;
+    font-weight: 400;
     font-size: var(--fs-lg);
 }
 
 /* section 3 here  */
+
+
+
+
+
+
+
+
+/* footer here  */
+
+.footer-container {
+    background-color: var(--main-color);
+    
+
+}
+
+
+
+/* footer links section  */
+.footer-links {
+    display: flex;
+    flex-flow: row wrap;
+    /* justify-content: space-between; */
+    
+    
+}
+
+.footer-links-wrappers {
+    padding: clamp(0.5rem, 4vw, 1rem);
+    
+    list-style: none;
+    flex-basis: 40%;
+    margin: clamp(1rem, 3vw ,1.5rem);
+    min-width: auto;
+    
+}
+
+@media (min-width: 670px) {
+    .footer-links {
+        justify-content: center;
+    }
+    .footer-links-wrappers {
+        flex-basis: 20%;
+    }
+}
+
+.foot-links-title {
+    display: block;
+    color: var(--white-color);
+    font-size: var(--fs-sm);
+    pointer-events: none;
+    text-decoration: none;
+    margin-bottom: clamp(.75rem, 3vh, 1rem);
+    font-weight: 500;
+    
+
+}
+
+.foot-links {
+    display: block;
+    text-decoration: none;
+    font-size: var(--fs-xs);
+    padding-block: clamp(.25rem, 3vw, .6rem);
+    color: var(--accent-color);
+    opacity: .75;
+}
