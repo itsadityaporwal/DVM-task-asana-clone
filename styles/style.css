@@ -74,7 +74,7 @@
 .button {
     display: block;
     border: none;
-    padding: clamp(0.5rem, 1.5vh, 0.75rem) clamp(0.75rem, 2vw, 1.25rem);
+    padding: clamp(0.75rem, 1.5vh, 1rem) clamp(0.75rem, 2vw, 1.25rem);
     border-radius: 20px;
 }
 
@@ -139,7 +139,9 @@ section {
     height: auto;
 }
 
+
 /* section 2(companies) */
+
 .company_wrap {
     display: flex;
     flex-wrap: wrap;
@@ -163,6 +165,8 @@ h4 {
     font-size: var(--fs-lg);
 }
 
+
+
 /* section 3 here  */
 
 
@@ -174,19 +178,51 @@ h4 {
 
 /* footer here  */
 
+/* footer header section  */
+
 .footer-container {
     background-color: var(--main-color);
-    
-
 }
 
+.footer-header {
+    font-size: var(--fs-lg);
+    color: var(--accent-color);
+    padding: clamp(1.75rem, 5vw, 2.5rem);
+    font-weight: 800;
+    
+}
+.footer-header button {
+    background-color: var(--accent-color);
+    color: var(--main-color);
+    margin-block: clamp(1rem, 4vw, 1.5rem);
+
+}
+hr {
+    width: 80%;
+    margin: auto;
+    color: var(--accent-color);
+    opacity: .3;
+}
+@media (min-width: 481px)
+{
+    .footer-header {
+        max-width: 70%;
+    }
+}
+@media (min-width: 900px)
+{
+    .footer-header {
+        max-width: 50%;
+    }
+}
 
 
 /* footer links section  */
 .footer-links {
     display: flex;
     flex-flow: row wrap;
-    /* justify-content: space-between; */
+    justify-content: space-between;
+    line-height: 1.5;
     
     
 }
