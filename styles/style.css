@@ -45,6 +45,10 @@
 /* navbar styles here */
 header {
     position: sticky;
+    top: 0;
+    background-color: var(--white-color);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+    z-index: 10;
 }
 
 .navbar {
@@ -52,7 +56,7 @@ header {
     display: flex;
     min-height: clamp(3.5rem, 6vh, 5rem);
     padding-inline: clamp(1rem, 3.5vw, 2rem);
-    padding-block: clamp(0.5rem, 2vh, 0.75rem);
+    padding-block: clamp(0.25rem, 1vh, 0.5rem);
     justify-content: space-between;
     align-items: center;
 
@@ -64,7 +68,7 @@ header {
 }
 
 .logo img {
-    height: clamp(1rem, 3vh, 2.75rem);
+    height: clamp(1rem, 3vh, 2.5rem);
     width: auto;
     object-fit: contain;
 }
@@ -181,16 +185,18 @@ h4 {
 .productivity {
     background-color: var(--accent-color);
     padding-inline: 0;
+    padding-block-end: clamp(3rem, 7.5vw ,8rem);
     color: var(--main-color)
+}
 
-}.productivity h1 {
+.productivity h1 {
     font-size: var(--fs-xl);
     font-weight: 900;
     padding-inline: clamp(1.25rem, 2.5vw, 2rem);
     padding-block: clamp(1.25rem, 2.5vw, 1rem);
 }
 
-.productivity > p {
+.productivity>p {
     font-size: var(--fs-base);
     padding-inline: clamp(1.25rem, 2.5vw, 2rem);
     line-height: 1.4;
@@ -205,7 +211,7 @@ h4 {
     background-color: var(--main-color);
     font-weight: 500;
     font-size: var(--fs-base);
-    
+
 }
 
 
@@ -285,7 +291,9 @@ h4 {
     .productivity-cards {
         scroll-snap-align: none;
     }
-    .productivity > h1, p {
+
+    .productivity>h1,
+    p {
         max-width: 60%;
     }
 }
