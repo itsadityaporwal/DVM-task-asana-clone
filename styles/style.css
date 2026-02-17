@@ -12,10 +12,10 @@
     --space-4: 2rem;
 
     /* Typography */
-    --fs-xs: clamp(0.86rem, 1.4vw, 1.15rem);
-    --fs-sm: clamp(0.875rem, 1.6vw, 1.125rem);
+    --fs-xs: clamp(0.86rem, 1.1vw, 1rem);
+    --fs-sm: clamp(0.875rem, 1.4vw, 1.125rem);
     --fs-base: clamp(1rem, 2vw, 1.25rem);
-    --fs-lg: clamp(1.25rem, 2.4vw, 1.5rem);
+    --fs-lg: clamp(1.25rem, 3.5vw, 2.25rem);
     --fs-xl: clamp(2rem, 6.5vw, 3.5rem);
 
     --main-color: #690031;
@@ -178,7 +178,12 @@ h4 {
 
 
 /* section 3 here  */
-.productivity h1 {
+.productivity {
+    background-color: var(--accent-color);
+    padding-inline: 0;
+    color: var(--main-color)
+
+}.productivity h1 {
     font-size: var(--fs-xl);
     font-weight: 900;
     padding-inline: clamp(1.25rem, 2.5vw, 2rem);
@@ -204,18 +209,13 @@ h4 {
 }
 
 
-.productivity {
-    background-color: var(--accent-color);
-    padding-inline: 0;
-    color: var(--main-color)
-}
+/* cards section here  */
 
 .productivity-cards {
     border: 0.5px solid rgba(110, 110, 110, 0.19);
     border-radius: 10px;
     padding-inline: clamp(1.25rem, 2.5vw, 2rem);
     padding-block: clamp(1.25rem, 2.5vw, 2rem);
-    min-height: clamp(11rem, 24vw, 14rem);
 }
 
 .productivity-cards>* {
@@ -223,6 +223,9 @@ h4 {
 }
 
 .productivity-cards p {
+    max-width: none;
+    width: auto;
+    inline-size: auto;
     font-size: var(--fs-sm);
     margin-inline-end: clamp(1.25rem, 2.5vw, 1.75rem);
     line-height: 1.5;
@@ -269,7 +272,8 @@ h4 {
     .productivity-cards-container {
         display: grid;
         grid-auto-flow: unset;
-        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(17.9rem, 1fr));
+        grid-template-rows: 1fr;
         gap: clamp(1rem, 2vw, 2rem);
         padding-inline: clamp(1.5rem, 4vw, 3rem);
         overflow-x: visible;
@@ -281,7 +285,7 @@ h4 {
     .productivity-cards {
         scroll-snap-align: none;
     }
-    .productivity h1, p {
+    .productivity > h1, p {
         max-width: 60%;
     }
 }
@@ -344,13 +348,10 @@ hr {
     flex-flow: row wrap;
     justify-content: space-between;
     line-height: 1.5;
-
-
 }
 
 .footer-links-wrappers {
     padding: clamp(0.5rem, 4vw, 1rem);
-
     list-style: none;
     flex-basis: 40%;
     margin: clamp(1rem, 3vw, 1.5rem);
