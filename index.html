@@ -7,26 +7,40 @@
     <title>Asana Clone</title>
     <link rel="stylesheet" href="./styles/style.css">
     <script src="https://kit.fontawesome.com/ca6866ea0c.js" crossorigin="anonymous"></script>
+    <script src="./js/script.js" defer></script>
 </head>
 
 <body>
     <header>
+        <a href="https://itsadityaporwal.github.io/DVM-task-asana-clone" class="logo">
+            <img src="./img/Asana-Logo-Horizontal-Coral-Black.png" alt="" srcset=""></a>
+
         <nav class="navbar">
-            <a href="https://itsadityaporwal.github.io/DVM-task-asana-clone" class="logo"><img
-                    src="./img/Asana-Logo-Horizontal-Coral-Black.png" alt="" srcset=""></a>
-            <div>
-                <!-- <a href="" class="links">Product</a>
+            <div class="link-wrapper" id="respMenu">
+                <a href="" class="links">Product</a>
                 <a href="" class="links">Solutions</a>
                 <a href="" class="links">Learning & support</a>
-                <a href="" class="links">Pricing</a> -->
+                <a href="" class="links">Pricing</a>
+    <!-- for 3 bottoms option link in mobile view  -->
+                <div id="bottom-menu">
+                    <a href="" class="bottom-links">Contact sales</a>
+                    <a href="" class="bottom-links">View demo</a>
+                    <a href="" class="bottom-links">Download app</a>
+
+                </div>
             </div>
-            <div>
-                <!-- <a href="" class="links">Contact sales</a> -->
-                <!-- <a href="" class="links">Log in</a> -->
-                <button type="button" class="nav_button button">Get started</button>
+            <div class="link-wrapper">
+                <div id="to-hide">
+                    <a href="" class="links">Contact sales</a>
+                    <a href="" class="links">Log in</a>
+                </div>
+
+                <button type="button" id="nav-button" class="button">Get started</button>
 
             </div>
-            <div class="hamburger"></div>
+            <div class="hamburger link-wrapper">
+                <i class="fa-solid fa-bars fa-xl" id="menuToggle" style="color: #6e6e6eff;"></i>
+            </div>
 
 
         </nav>
