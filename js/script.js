@@ -13,23 +13,24 @@ function placeNavContainer() {
 window.addEventListener('load', placeNavContainer);
 window.addEventListener('resize', placeNavContainer);
 
-new 
-ResizeObserver(placeNavContainer).observe(num);
+new
+    ResizeObserver(placeNavContainer).observe(num);
 
 
 //for opening & closing navbar in mobile view
 
-const menuToggle = document.getElementById('menuToggle');
+const menuBtn = document.getElementById('menuToggleBtn');
+const menuIcon = document.getElementById('menuIcon');
 const respMenu = document.getElementById('respMenu');
 
-function toggleMenu() {
-  const isOpen = respMenu.classList.toggle('open');
-  menuToggle.classList.toggle('fa-bars', !isOpen);
-  menuToggle.classList.toggle('fa-xmark', isOpen);
+function toggleMenu(e) {
+    e.preventDefault(); // stops ghost click on some browsers
+    const isOpen = respMenu.classList.toggle('open');
+    menuIcon.classList.toggle('fa-bars', !isOpen);
+    menuIcon.classList.toggle('fa-xmark', isOpen);
+
 }
 
-if (window.PointerEvent) {
-  menuToggle.addEventListener('pointerup', toggleMenu);
-} else {
-  menuToggle.addEventListener('click', toggleMenu);
-}
+menuBtn.addEventListener('pointerup', toggleMenu);
+
+

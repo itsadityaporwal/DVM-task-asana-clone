@@ -50,6 +50,7 @@ header {
     background-color: var(--white-color);
     box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
     z-index: 1000;
+
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: clamp(8rem, 15vw, 10rem) 1fr;
@@ -59,23 +60,21 @@ header {
     color: #6e6e6e;
     min-height: clamp(3.5rem, 6vh, 5rem);
     padding-inline: clamp(1rem, 2vw, 2rem);
-    padding-block: clamp(0.25rem, 1vh, 0.5rem);
     display: flex;
     justify-content: space-between;
 
 }
 
 .logo {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    z-index: 1;
+    z-index: inherit;
 }
 
 .logo img {
     height: clamp(1rem, 2vh, 2.5rem);
-    width: auto;
     object-fit: contain;
 }
 
@@ -85,6 +84,8 @@ header {
     padding: clamp(0.75rem, 1vw, 1rem) clamp(1rem, 2vw, 1.25rem);
     display: inline-block;
     margin-inline: clamp(0.5rem, 2vw, 1rem);
+    position: relative;
+    z-index: inherit;
 }
 
 .link-wrapper {
@@ -119,6 +120,7 @@ header {
 
 #to-hide {
     display: flex;
+    gap: clamp(0.5rem, 1vw, 1rem);
 
 }
 
@@ -136,14 +138,13 @@ header {
 
     .hamburger {
         display: flex;
+        position: relative;
+        z-index: 1002;
     }
 
     #respMenu {
-
         position: fixed;
         top: -100vh;
-
-
         left: 0;
         display: flex;
         flex-flow: column;
@@ -151,26 +152,40 @@ header {
         align-items: flex-start;
         height: calc(100vh - var(--header-h));
         width: 100%;
-        z-index: 5;
+        z-index: -1;
         background-color: var(--white-color);
-        transition: top 300ms ease-in-out;
+        transition: top 300ms ease, opacity 1000ms ease;
         pointer-events: none;
+        opacity: 0;
     }
 
     #respMenu.open {
         top: var(--header-h, clamp(3.5rem, 4vw, 4rem));
         pointer-events: auto;
+        opacity: 1;
 
     }
 
     #menuToggle {
         position: relative;
-        z-index: 1002;
+        z-index: 1003;
         pointer-events: auto;
         cursor: pointer;
         touch-action: manipulation;
     }
 
+    #menuToggleBtn {
+        all: unset;
+        /* remove default button styles */
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: auto;
+        touch-action: manipulation;
+    }
+
+ 
 
     /* for 3 bottoms option link in mobile view  */
     #bottom-menu {
@@ -198,7 +213,7 @@ header {
     }
 
     /* for 3 bottoms option link in mobile view {code above} */
-    .links {
+    #respMenu .links {
         width: 100%;
         position: relative;
         color: var(--primary-font-color);
