@@ -14,8 +14,8 @@
     /* Typography */
     --fs-xs: clamp(0.86rem, 1.1vw, 1rem);
     --fs-sm: clamp(1rem, 1.4vw, 1.125rem);
-    --fs-base: clamp(1rem, 2vw, 1.25rem);
-    --fs-lg: clamp(1.25rem, 3.5vw, 2.25rem);
+    --fs-base: clamp(1.25rem, 2.5vw, 1.25rem);
+    --fs-lg: clamp(1.5rem, 3.5vw, 2.25rem);
     --fs-xl: clamp(2rem, 6.5vw, 3.5rem);
 
     --main-color: #690031;
@@ -27,6 +27,10 @@
     --grey-color: #696969;
     outline: none;
     --header-h: clamp(3.5rem, 4vw, 4rem);
+
+    --card-radius: 16px;
+    --card-bg: #f7f7f7;
+    --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.12);
 
 }
 
@@ -185,7 +189,7 @@ header {
         touch-action: manipulation;
     }
 
- 
+
 
     /* for 3 bottoms option link in mobile view  */
     #bottom-menu {
@@ -288,7 +292,7 @@ section {
 
 .hero_section h1 {
     padding: clamp(1rem, 2.5vw, 2rem);
-    font-weight: 900;
+    font-weight: 500;
     font-size: var(--fs-xl);
     text-align: center;
 
@@ -371,7 +375,7 @@ h4 {
 
 .productivity h1 {
     font-size: var(--fs-xl);
-    font-weight: 900;
+    font-weight: 500;
     padding-inline: clamp(1.25rem, 2.5vw, 2rem);
     padding-block: clamp(1.25rem, 2.5vw, 1rem);
 }
@@ -409,8 +413,8 @@ h4 {
 }
 
 .productivity-cards p {
-    max-width: none;
-    width: auto;
+    max-width: max-content;
+    /* width: auto; */
     inline-size: auto;
     font-size: var(--fs-sm);
     margin-inline-end: clamp(1.25rem, 2.5vw, 1.75rem);
@@ -420,7 +424,7 @@ h4 {
 
 .learn-more {
     font-size: var(--fs-xs);
-    font-weight: 900;
+    font-weight: 500;
 
 }
 
@@ -475,6 +479,129 @@ h4 {
     .productivity>h1,
     p {
         max-width: 60%;
+    }
+}
+
+
+/* section 4 carousel starts here  */
+.usecases-section {
+    padding-block: clamp(2rem, 6vw, 5rem);
+    padding-inline: 0;
+
+}
+
+.usecases-section h2 {
+    font-size: var(--fs-xl);
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+    padding-inline: clamp(2rem, 6vw, 5rem);
+}
+
+
+.btnWrapper {
+    display: flex;
+    padding-inline: clamp(2rem, 6vw, 5rem);
+    gap: 0.75rem;
+    justify-content: flex-end;
+}
+
+
+
+.rail-track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: clamp(15rem, 75vw, 20rem);
+    gap: 1rem;
+    overflow-x: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
+    padding: clamp(1.5rem, 6vw, 3.5rem);
+}
+
+.rail-track::-webkit-scrollbar {
+    display: none;
+}
+
+.rail-card {
+    border: 1px #69696943 solid;
+    border-radius: var(--card-radius);
+    padding: clamp(1.5rem, 2vw, 2rem);
+    min-height: clamp(15rem, 24vw, 16rem);
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-rows: 1fr clamp(2.5rem, 4vw, 5rem) 1fr 0.5fr;
+}
+
+.rail-card:hover {
+    background: #eeebeb43;
+    transition: background 0.1s ease-in-out;
+}
+
+.rail-card img {
+    max-width: 38%;
+    height: auto;
+    padding-block-end: clamp(1rem, 1vw, 2rem);
+}
+
+
+.rail-card h3 {
+    font-size: var(--fs-base);
+}
+
+.rail-card p {
+    opacity: 0.8;
+    font-size: var(--fs-xm);
+    line-height: 1.5;
+    max-width: max-content;
+}
+
+.rail-card a {
+    display: block;
+    width: max-content;
+    text-decoration: none;
+    color: var(--primary-font-color);
+    font-weight: 500;
+    font-size: var(--fs-base)
+}
+
+.rail-card a:hover {
+    opacity: 0.7;
+    transition: opacity 150ms ease-in-out;
+}
+
+.rail-btn {
+    all: unset;
+    border: none;
+    cursor: pointer;
+    z-index: 5;
+    font-size: 1.5rem;
+    display: grid;
+    place-items: center;
+    user-select: none;
+}
+
+.rail-btn:hover {
+    opacity: 0.6;
+    transition: opacity .2s ease-in-out;
+}
+
+.rail-btn:disabled {
+
+    .fa-circle-arrow-left,
+    .fa-circle-arrow-right {
+        color: #aca2a7;
+    }
+
+    ;
+
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+@media (min-width: 769px) {
+    .usecases-section h2 {
+        max-width: 70%;
     }
 }
 
