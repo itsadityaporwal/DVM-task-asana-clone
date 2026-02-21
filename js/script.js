@@ -40,9 +40,9 @@ menuBtn.addEventListener('pointerup', toggleMenu);
   const btnNext = document.querySelector(".btnWrapper .next");
   const cards = [...rail.children];
 
-  let isDown = false;
-  let startX;
-  let scrollStart;
+  let isDragging = false;
+  let startX = 0;
+  let startScroll = 0;
 
   function step() {
     const gap = parseFloat(getComputedStyle(rail).gap) || 0;
@@ -60,37 +60,33 @@ menuBtn.addEventListener('pointerup', toggleMenu);
     rail.scrollTo({ left: idx * step(), behavior: "smooth" });
   }
 
-  // Mouse drag (desktop only)
-  rail.addEventListener("mousedown", (e) => {
-    isDown = true;
-    startX = e.pageX - rail.offsetLeft;
-    scrollStart = rail.scrollLeft;
+  // Pointer events (mouse + touch)
+  rail.addEventListener("pointerdown", (e) => {
+    isDragging = true;
+    rail.classList.add("is-dragging");
+    rail.setPointerCapture(e.pointerId);
+    startX = e.clientX;
+    startScroll = rail.scrollLeft;
   });
 
-  window.addEventListener("mouseup", () => {
-    if (isDown) snap();
-    isDown = false;
-  });
-
-  rail.addEventListener("mouseleave", () => {
-    if (isDown) snap();
-    isDown = false;
-  });
-
-  rail.addEventListener("mousemove", (e) => {
-    if (!isDown) return;
+  rail.addEventListener("pointermove", (e) => {
+    if (!isDragging) return;
     e.preventDefault();
-    rail.scrollLeft = scrollStart - (e.pageX - rail.offsetLeft - startX);
+    rail.scrollLeft = startScroll - (e.clientX - startX);
     syncButtons();
   });
 
-  // Touch (mobile): let browser handle scrolling, JS only snaps after
-  rail.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].pageX - rail.offsetLeft;
-    scrollStart = rail.scrollLeft;
-  }, { passive: true });
+  function endDrag(e) {
+    if (!isDragging) return;
+    isDragging = false;
+    rail.classList.remove("is-dragging");
+    try { rail.releasePointerCapture(e.pointerId); } catch {}
+    snap();
+  }
 
-  rail.addEventListener("touchend", snap);
+  rail.addEventListener("pointerup", endDrag);
+  rail.addEventListener("pointercancel", endDrag);
+  rail.addEventListener("pointerleave", endDrag);
 
   // Buttons
   btnPrev.addEventListener("click", () => {

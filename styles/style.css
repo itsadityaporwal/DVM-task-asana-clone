@@ -17,6 +17,7 @@
     --fs-base: clamp(1.25rem, 2.5vw, 1.25rem);
     --fs-lg: clamp(1.5rem, 3.5vw, 2.25rem);
     --fs-xl: clamp(2rem, 6.5vw, 3.5rem);
+    --fs-xxl: clamp(2rem, 7vw, 5.25rem);
 
     --main-color: #690031;
     --accent-color: #ffeaec;
@@ -68,9 +69,10 @@ header {
     justify-content: space-between;
 
 }
+
 .navbar a:hover {
     color: var(--primary-font-color);
-        
+
 }
 
 .logo {
@@ -90,13 +92,14 @@ header {
     background-color: var(--primary-font-color);
     color: var(--white-color);
     font-size: var(--fs-xs);
-    font-weight: 500;
+    font-weight: 600;
     padding: clamp(0.75rem, 1.5vh, 1rem) clamp(1.1rem, 2vw, 1.25rem);
     display: inline-block;
     margin-inline: clamp(0.5rem, 2vw, 1rem);
     position: relative;
     z-index: inherit;
 }
+
 #nav-button:hover {
     opacity: 0.75;
     transition: opacity 50ms ease-in;
@@ -124,7 +127,7 @@ header {
     padding-inline: clamp(2rem, 2.5vw, 2.8rem);
     padding-block: clamp(1rem, 1.25vw, 1.4rem);
     border-radius: 100px;
-    font-weight: 500;
+    font-weight: 700;
 }
 
 .hamburger {
@@ -302,11 +305,13 @@ section {
 
 .hero_section h1 {
     padding: clamp(1rem, 2.5vw, 2rem);
-    font-weight: 500;
-    font-size: var(--fs-xl);
+    font-weight: 700;
+    font-size: var(--fs-xxl);
     text-align: center;
 
 }
+
+
 
 .hero_section p {
     font-size: var(--fs-base);
@@ -343,6 +348,7 @@ section {
     background: #820a42;
     transition: background 50ms ease-in;
 }
+
 #get_started:hover {
     opacity: 0.75;
     transition: opacity 50ms ease-in;
@@ -369,10 +375,20 @@ section {
 
     .hero_buttons button {
         font-size: var(--fs-base);
-
     }
-
 }
+
+.responsive-break::before {
+    content: "\A";
+    white-space: pre;
+}
+
+@media (min-width: 1075px) {
+    .responsive-break::before {
+        content: "";
+    }
+}
+
 
 
 /* section 2(companies) */
@@ -387,7 +403,7 @@ section {
 }
 
 h4 {
-    font-weight: 500;
+    font-weight: 600;
     font-size: var(--fs-lg);
     padding-inline: clamp(1rem, 5vw, 2rem);
     line-height: 1.2;
@@ -473,7 +489,7 @@ h4 {
 
 .productivity h1 {
     font-size: var(--fs-xl);
-    font-weight: 500;
+    font-weight: 700;
     padding-inline: clamp(1.25rem, 2.5vw, 2rem);
     padding-block: clamp(1.25rem, 2.5vw, 1rem);
 }
@@ -495,11 +511,12 @@ h4 {
     font-size: var(--fs-base);
 
 }
+
 .productivity button:hover {
     background: #820a42;
     transition: background 50ms ease-in;
 }
-  
+
 
 /* cards section here  */
 
@@ -509,6 +526,7 @@ h4 {
     padding-inline: clamp(1.25rem, 2.5vw, 2rem);
     padding-block: clamp(1.25rem, 2.5vw, 2rem);
 }
+
 .productivity-cards:hover {
     background-color: #ffe7eb;
     ;
@@ -538,6 +556,7 @@ h4 {
     text-decoration: none;
     color: inherit;
 }
+
 .learn-more:hover {
     color: #820a42;
     transition: background 50ms ease-in;
@@ -600,7 +619,7 @@ h4 {
 
 .usecases-section h2 {
     font-size: var(--fs-xl);
-    font-weight: 500;
+    font-weight: 700;
     margin-bottom: 1.25rem;
     padding-inline: clamp(2rem, 6vw, 5rem);
 }
@@ -625,6 +644,7 @@ h4 {
     scroll-behavior: smooth;
     overscroll-behavior-x: contain;
     padding: clamp(1.5rem, 6vw, 3.5rem);
+    pointer-events: auto;
 }
 
 .rail-track::-webkit-scrollbar {
@@ -705,6 +725,10 @@ h4 {
 
     opacity: 0.4;
     cursor: not-allowed;
+}
+
+.rail-track.is-dragging {
+    scroll-snap-type: none;
 }
 
 @media (min-width: 769px) {
@@ -815,6 +839,7 @@ hr {
     color: var(--accent-color);
     opacity: .75;
 }
+
 .foot-links:hover {
     opacity: 1;
     transition: opacity 50ms ease-in;
