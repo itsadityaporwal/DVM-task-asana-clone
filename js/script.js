@@ -35,79 +35,74 @@ menuBtn.addEventListener('pointerup', toggleMenu);
 
 
 //for carousel section 
-const rail = document.getElementById("usecaseRail");
-const btnPrev = document.querySelector(".btnWrapper .prev");
-const btnNext = document.querySelector(".btnWrapper .next");
-const cards = [...rail.children];
+ const rail = document.getElementById("usecaseRail");
+  const btnPrev = document.querySelector(".btnWrapper .prev");
+  const btnNext = document.querySelector(".btnWrapper .next");
+  const cards = [...rail.children];
 
-let isDown = false;
-let startX;
-let scrollStart;
+  let isDown = false;
+  let startX;
+  let scrollStart;
 
-function step() {
+  function step() {
     const gap = parseFloat(getComputedStyle(rail).gap) || 0;
     return cards[0].offsetWidth + gap;
-}
+  }
 
-function syncButtons() {
+  function syncButtons() {
     const max = rail.scrollWidth - rail.clientWidth - 1;
     btnPrev.disabled = rail.scrollLeft <= 0;
     btnNext.disabled = rail.scrollLeft >= max;
-}
+  }
 
-function snap() {
+  function snap() {
     const idx = Math.round(rail.scrollLeft / step());
     rail.scrollTo({ left: idx * step(), behavior: "smooth" });
-}
+  }
 
-// Mouse drag
-rail.addEventListener("mousedown", (e) => {
+  // Mouse drag (desktop only)
+  rail.addEventListener("mousedown", (e) => {
     isDown = true;
     startX = e.pageX - rail.offsetLeft;
     scrollStart = rail.scrollLeft;
-});
+  });
 
-window.addEventListener("mouseup", () => {
+  window.addEventListener("mouseup", () => {
     if (isDown) snap();
     isDown = false;
-});
+  });
 
-rail.addEventListener("mouseleave", () => {
+  rail.addEventListener("mouseleave", () => {
     if (isDown) snap();
     isDown = false;
-});
+  });
 
-rail.addEventListener("mousemove", (e) => {
+  rail.addEventListener("mousemove", (e) => {
     if (!isDown) return;
     e.preventDefault();
     rail.scrollLeft = scrollStart - (e.pageX - rail.offsetLeft - startX);
     syncButtons();
-});
+  });
 
-// Touch
-rail.addEventListener("touchstart", (e) => {
+  // Touch (mobile): let browser handle scrolling, JS only snaps after
+  rail.addEventListener("touchstart", (e) => {
     startX = e.touches[0].pageX - rail.offsetLeft;
     scrollStart = rail.scrollLeft;
-}, { passive: true });
+  }, { passive: true });
 
-rail.addEventListener("touchmove", (e) => {
-    rail.scrollLeft = scrollStart - (e.touches[0].pageX - rail.offsetLeft - startX);
-    syncButtons();
-}, { passive: true });
+  rail.addEventListener("touchend", snap);
 
-rail.addEventListener("touchend", snap);
-
-// Buttons
-btnPrev.addEventListener("click", () => {
+  // Buttons
+  btnPrev.addEventListener("click", () => {
     rail.scrollBy({ left: -step(), behavior: "smooth" });
     setTimeout(syncButtons, 250);
-});
+  });
 
-btnNext.addEventListener("click", () => {
+  btnNext.addEventListener("click", () => {
     rail.scrollBy({ left: step(), behavior: "smooth" });
     setTimeout(syncButtons, 250);
-});
+  });
 
-window.addEventListener("load", syncButtons);
-window.addEventListener("resize", syncButtons);
-rail.addEventListener("scroll", syncButtons);
+  window.addEventListener("load", syncButtons);
+  window.addEventListener("resize", syncButtons);
+  rail.addEventListener("scroll", syncButtons);
